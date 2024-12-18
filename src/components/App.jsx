@@ -15,8 +15,7 @@ function App() {
 
   return (
     <div>
-      <p>Hello world</p>
-      <SplitCard title="Nadpis"text="Ahoj, test 123" />
+      <SplitCard key="1" title="tutoriál" text="Ahoj, test 123" />
     </div>
   );
 }
