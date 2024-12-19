@@ -1,21 +1,44 @@
 import React from "react";
 import SplitCard from "./SplitCard";
+import FormAddSplitCard from "./FormAddSplitCard";
 
 // alt + shift + f = auto-indent
+/** Ideas
+ *  Change color on SplitCardSegments when the user checks their solution
+ *    red for incorrect, green for correct.
+ *
+ *  Add required to the input fields in FormAddSplitCard
+ *  
+ *  textSegments is a hook but I modify its elements directly, figure out if its a problem
+ *  Add retry button and state. When Check button is pressed, disable all buttons until user pressed retry button
+ *  which unchecks all buttons.
+ */
+
 function App() {
-  let tempSplitCards = [
+  const [splitCards, setSplitCards] = React.useState([
     {
+      title: "Tutorial",
       text: "ahoj, jak se máš?",
     },
-    {
-      text: "Jde to fajn",
-    },
-  ];
-  const [splitCards, setSplitCards] = React.useState([]);
+  ]);
+
+  function addSplitCard(newCard) {
+    if (newCard.title == "" || newCard.text == "") {
+      alert("Please fill out both fields");
+      return;
+    } else {
+      setSplitCards((preValue) => {
+        return [...preValue, newCard];
+      });
+    }
+  }
 
   return (
     <div>
-      <SplitCard key="1" title="tutoriál" text="Ahoj, test 123" />
+      <FormAddSplitCard addSplitCard={addSplitCard} />
+      {splitCards.map((splitCard, index) => (
+        <SplitCard key={index} title={splitCard.title} text={splitCard.text} />
+      ))}
     </div>
   );
 }

@@ -7,6 +7,7 @@ function SplitCardSegment(props) {
         props.onClick(props.id);
       }}
       className="splitCardSegment"
+      style={{ backgroundColor: props.color }}
     >
       {props.text}
     </button>
