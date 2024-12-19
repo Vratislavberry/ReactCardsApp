@@ -12,6 +12,7 @@ import FormAddSplitCard from "./FormAddSplitCard";
  *  Make more web pages
  *    Home page
  *    Manage cards page
+ *        Make more types of cards (one correct answer, multiple correct answers, etc.)
  *    Take test from deck of Cards page (including filtering of which card I want)
  *    login page (when I connect it to a database)
  *    Should I use Express.js ?
@@ -27,7 +28,7 @@ function App() {
   const [splitCards, setSplitCards] = React.useState([
     {
       title: "Tutorial",
-      text: "ahoj, jak se máš?",
+      text: "Hello, how are you?",
     },
   ]);
 
