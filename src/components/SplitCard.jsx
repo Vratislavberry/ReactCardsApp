@@ -6,7 +6,7 @@ function SplitCard(props) {
   const [textSegments, setTextSegments] = React.useState(
     shuffle(
       props.text.split(" ").map((textPart, index) => {
-        return { id: index, text: textPart, checked: false, color: "blue" };
+        return { id: index, text: textPart, checked: false, color: "white" };
       })
     )
   );
@@ -40,9 +40,9 @@ function SplitCard(props) {
           tempObject,
         ];
       });
-      // Change color of the segment to blue when the user unchecks it
+      // Change color of the segment to white when the user unchecks it
       if (tempObject.checked === false) {
-        tempObject.color = "blue";
+        tempObject.color = "white";
       }
 
       setCorrectResult(null);

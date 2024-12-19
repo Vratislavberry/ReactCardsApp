@@ -3,15 +3,24 @@ import SplitCard from "./SplitCard";
 import FormAddSplitCard from "./FormAddSplitCard";
 
 // alt + shift + f = auto-indent
-/** Ideas
- *  Change color on SplitCardSegments when the user checks their solution
- *    red for incorrect, green for correct.
- *
- *  Add required to the input fields in FormAddSplitCard
- *  
- *  textSegments is a hook but I modify its elements directly, figure out if its a problem
+/** Ideas for improvement:
+ * 
+ * Make CRUD operations for cards 
+ *    Add a button to remove a card
+ *    Add a button to edit a card
+ * 
+ *  Make more web pages
+ *    Home page
+ *    Manage cards page
+ *    Take test from deck of Cards page (including filtering of which card I want)
+ *    login page (when I connect it to a database)
+ *    Should I use Express.js ?
+ * 
  *  Add retry button and state. When Check button is pressed, disable all buttons until user pressed retry button
  *  which unchecks all buttons.
+ * 
+ *  Style webpage with Bootstrap
+ * 
  */
 
 function App() {
