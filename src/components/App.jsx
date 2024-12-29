@@ -18,7 +18,7 @@ import NavBar from "./NavBar";
  *    Home page
  *    Manage cards page
  *        Make more types of cards (one correct answer, multiple correct answers, etc.)
- *    Take test from deck of Cards page (including filtering of which card I want)
+ *    Take test from deck of Cards page (including filtering of which cards I want)
  *    login page (when I connect it to a database)
  *    Should I use Express.js ?
  *
@@ -26,6 +26,10 @@ import NavBar from "./NavBar";
  *  all buttons until user pressed retry button which unchecks all buttons.
  *
  *  Style webpage with Bootstrap
+ * 
+ * 
+ *  Add a session (local storage) to save cards among multiple pages and page refreshes
+ *  
  *
  */
 
