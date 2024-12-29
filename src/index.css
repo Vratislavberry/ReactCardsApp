@@ -20,9 +20,7 @@ body {
   color: black;
 }
 
-
-
-.splitCard {
+.splitCardPreview {
   background-color: rgb(177, 93, 93);
   border: 2px solid black;
   border-radius: 10px;
@@ -30,6 +28,14 @@ body {
   padding: 10px;
   margin: 20px;
   float: left;
+}
+
+.splitCardFull {
+  background-color: rgb(177, 93, 93);
+  border-radius: 10px;
+  width: 40%;
+  padding: 10px;
+  margin: 20px;
 }
 
 .splitCardSegment {
@@ -60,7 +66,6 @@ body {
 .message p {
   padding: 10px;
   text-align: center;
-  
 }
 
 .formAddSplitCard {
@@ -79,4 +84,26 @@ body {
 .formAddSplitCard button {
   background-color: lightcoral;
   margin: 5px;
+}
+
+.quiz-ui {
+  background-color: rgb(152, 79, 79);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+
+}
+
+.quiz-ui button {
+  background-color: lightcoral;
+  margin: 5px;
+}
+
+.nextButton, .previousButton {
+  font-size: large;
+  margin: 20px;
+}
+
+.quizNav {
+  text-align: center;
 }

@@ -1,7 +1,13 @@
 import React from "react";
+import SplitCard from "../components/SplitCard";
+import QuizUI from "../components/QuizUI";
 
 function Quiz() {
-    return (<h1>Behold, toto je můj quiz :)</h1>);
+  return (
+    <div>
+      <QuizUI />
+    </div>
+  );
 }
 
 export default Quiz;

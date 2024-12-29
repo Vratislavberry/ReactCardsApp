@@ -5,12 +5,14 @@ import SplitCard from "../components/SplitCard";
 function CardManager() {
   const [splitCards, setSplitCards] = React.useState(() => {
     const data = window.localStorage.getItem("MY_SPLIT_CARDS");
-    return data ? JSON.parse(data) : [
-      {
-        title: "Tutorial",
-        text: "Hello, how are you?",
-      }
-    ];
+    return data
+      ? JSON.parse(data)
+      : [
+          {
+            title: "Tutorial",
+            text: "Hello, how are you?",
+          },
+        ];
   });
 
   React.useEffect(() => {
@@ -33,7 +35,7 @@ function CardManager() {
     <div>
       <FormAddSplitCard addSplitCard={addSplitCard} />
       {splitCards.map((splitCard, index) => (
-        <SplitCard key={index} title={splitCard.title} text={splitCard.text} />
+        <SplitCard key={index} title={splitCard.title} text={splitCard.text}  className={"splitCardPreview"}/>
       ))}
     </div>
   );

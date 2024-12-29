@@ -108,7 +108,7 @@ function SplitCard(props) {
   }
 
   return (
-    <div className="splitCard">
+    <div className={props.className}>
       <h3>{props.title}</h3>
       <hr />
       <p>Result: </p>
