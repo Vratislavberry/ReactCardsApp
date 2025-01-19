@@ -35,7 +35,7 @@ function CardManager() {
     <div>
       <FormAddSplitCard addSplitCard={addSplitCard} />
       {splitCards.map((splitCard, index) => (
-        <SplitCard key={index} title={splitCard.title} text={splitCard.text}  className={"splitCardPreview"}/>
+        <SplitCard key={index} title={splitCard.title} text={splitCard.text} className={"splitCardPreview"}/>
       ))}
     </div>
   );

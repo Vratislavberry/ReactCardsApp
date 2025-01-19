@@ -35,6 +35,10 @@ function SplitCard(props) {
       return segment.id === id;
     });
     tempObject.checked = !tempObject.checked;
+    // Change color of the segment to white when the user unchecks it
+    if (tempObject.checked === false) {
+      tempObject.color = "white";
+    }
     setTextSegments((preValue) => {
       return [
         ...preValue.filter((segment) => {
@@ -43,10 +47,12 @@ function SplitCard(props) {
         tempObject,
       ];
     });
+    /*
     // Change color of the segment to white when the user unchecks it
     if (tempObject.checked === false) {
       tempObject.color = "white";
     }
+    */
 
     setCorrectResult(null);
   }
