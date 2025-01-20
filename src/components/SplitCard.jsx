@@ -3,15 +3,6 @@ import SplitCardSegment from "./SplitCardSegment";
 
 function SplitCard(props) {
   // Init of hooks
-  /*
-  const [textSegments, setTextSegments] = React.useState(
-    shuffle(
-      props.text.split(" ").map((textPart, index) => {
-        return { id: index, text: textPart, checked: false, color: "white" };
-      })
-    )
-  );
-  */
   const [textSegments, setTextSegments] = React.useState(
     props.segments !== undefined
       ? props.segments
@@ -27,9 +18,13 @@ function SplitCard(props) {
         )
   );
 
+  // States whether the order of the segments is correct (true,
+  // false or null when checked button has not been pressed yet)
+  const [correctResult, setCorrectResult] = React.useState(props.state != undefined ? props.state : null);
+
   React.useEffect(() => {
-    props.onUpdate(textSegments);
-  }, [textSegments]);
+    props.onUpdate(textSegments, correctResult);
+  }, [textSegments, correctResult]);
 
   // Changes one element of the textSegments array without mutating the original array
   function changeTextSegmentsElement(id, newObject) {
@@ -42,10 +37,6 @@ function SplitCard(props) {
       });
     });
   }
-
-  // States whether the order of the segments is correct (true,
-  // false or null when checked button has not been pressed yet)
-  const [correctResult, setCorrectResult] = React.useState(null);
 
   /***** Handle functions *****/
   // handles click on the card segment

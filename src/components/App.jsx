@@ -10,6 +10,9 @@ import NavBar from "./NavBar";
 // alt + shift + f = auto-indent
 /** Ideas for improvement:
  *
+ *  After a SplitCard is checked, when SplitCardSegment is clicked, 
+ *  make all SplitCardSegments unchecked
+ * 
  * Make CRUD operations for cards
  *    Add a button to remove a card
  *    Add a button to edit a card
