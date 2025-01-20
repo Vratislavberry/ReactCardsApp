@@ -14,7 +14,21 @@ function QuizUI(props) {
         ];
   });
   const [currentCardIndex, setCurrentCardIndex] = React.useState(0);
+  // update splitCards in QuizUI (not in local storage) whenever it changes 
+  // (update when a cardSegment is checked, checked button is clicked, add a state saying whether a card
+  // is correctly answered, incorrectly answered, not answered, or not visited)
+  // 
 
+  function updateSplitCards(SplitCardSegments) {
+    setSplitCards((prevCards) => {
+      return prevCards.map((card, index) => {
+        if (index === currentCardIndex) {
+          return {...card,  segments: [...SplitCardSegments]};
+        }
+        return card;
+      });
+    });
+  }
   return (
     <div className="quiz-ui">
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -23,6 +37,8 @@ function QuizUI(props) {
           key={currentCardIndex}
           title={splitCards[currentCardIndex].title}
           text={splitCards[currentCardIndex].text}
+          segments={splitCards[currentCardIndex].segments}
+          onUpdate={updateSplitCards}
         />
       </div>
 

@@ -3,6 +3,7 @@ import SplitCardSegment from "./SplitCardSegment";
 
 function SplitCard(props) {
   // Init of hooks
+  /*
   const [textSegments, setTextSegments] = React.useState(
     shuffle(
       props.text.split(" ").map((textPart, index) => {
@@ -10,6 +11,25 @@ function SplitCard(props) {
       })
     )
   );
+  */
+  const [textSegments, setTextSegments] = React.useState(
+    props.segments !== undefined
+      ? props.segments
+      : shuffle(
+          props.text.split(" ").map((textPart, index) => {
+            return {
+              id: index,
+              text: textPart,
+              checked: false,
+              color: "white",
+            };
+          })
+        )
+  );
+
+  React.useEffect(() => {
+    props.onUpdate(textSegments);
+  }, [textSegments]);
 
   // Changes one element of the textSegments array without mutating the original array
   function changeTextSegmentsElement(id, newObject) {
@@ -127,7 +147,6 @@ function SplitCard(props) {
       {getSpecifiedSegments(textSegments, (textSegment) => {
         return textSegment.checked === false;
       })}
-
 
       <div className="checkButtonContainer">
         <button onClick={handleCheck}>Check</button>
