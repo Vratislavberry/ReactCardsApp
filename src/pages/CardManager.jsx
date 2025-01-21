@@ -15,6 +15,8 @@ function CardManager() {
         ];
   });
 
+  const [editCardIndex, setEditCardIndex] = React.useState(null);
+
   React.useEffect(() => {
     window.localStorage.setItem("MY_SPLIT_CARDS", JSON.stringify(splitCards));
   }, [splitCards]);
@@ -30,6 +32,24 @@ function CardManager() {
     }
   }
 
+  function insertSplitCard(newCard) {
+    if (newCard.title == "" || newCard.text == "") {
+      alert("Please fill out both fields");
+      return;
+    } else {
+      setSplitCards(splitCards.map((card, index) => {
+        if (index === editCardIndex){
+          return newCard
+        }
+        else {
+          return card
+        }
+      }));
+    }
+
+    setEditCardIndex(null);
+  }
+
   function deleteSplitCard(index) {
     setSplitCards((preValue) => {
       return preValue.filter((splitCard, i) => {
@@ -41,16 +61,26 @@ function CardManager() {
   return (
     <div>
       <FormAddSplitCard addSplitCard={addSplitCard} />
-      {splitCards.map((splitCard, index) => (
-        <SplitCard
-          key={index}
-          id={index}
-          title={splitCard.title}
-          text={splitCard.text}
-          className={"splitCardPreview"}
-          onDelete={deleteSplitCard}
-        />
-      ))}
+      {splitCards.map((splitCard, index) => {
+        return index !== editCardIndex ? (
+          <SplitCard
+            key={index}
+            id={index}
+            title={splitCard.title}
+            text={splitCard.text}
+            className={"splitCardPreview"}
+            onDelete={deleteSplitCard}
+            onEdit={() => setEditCardIndex(index)}
+          />
+        ) : (
+          <FormAddSplitCard
+            addSplitCard={insertSplitCard}
+            title={splitCard.title}
+            text={splitCard.text}
+            ClassName="splitCardPreview"
+          />
+        );
+      })}
     </div>
   );
 }

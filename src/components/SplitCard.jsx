@@ -147,10 +147,11 @@ function SplitCard(props) {
 
       <div className="button-crud-container">
         <button onClick={handleCheck}>Check</button>
-      </div>
-      <div className="button-crud-container">
         <button onClick={() => {props.onDelete(props.id)}}>Delete</button>
+        <button onClick={() => {props.onEdit(props.id)}}>Edit</button>
       </div>
+
+
       <div className="message">
         {SplitCardState === true && (
           <p style={{ color: "green" }}>You are right!</p>

@@ -1,7 +1,11 @@
 import React from "react";
 
 function FormAddSplitCard(props) {
-  const [SplitCard, setSplitCard] = React.useState({ title: "", text: "" });
+  const [SplitCard, setSplitCard] = React.useState(
+    props.text !== undefined
+      ? { title: props.title, text: props.text }
+      : { title: "", text: "" }
+  );
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -12,7 +16,7 @@ function FormAddSplitCard(props) {
   }
 
   return (
-    <form className="formAddSplitCard">
+    <form className={props.ClassName ? props.ClassName : "formAddSplitCard"}>
       <h3>Add new Split card</h3>
       <input
         onChange={handleChange}
