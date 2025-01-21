@@ -107,3 +107,14 @@ body {
 .quizNav {
   text-align: center;
 }
+
+.bar-button {
+  border: 2px solid black;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.bar-button:hover {
+  border-color: lightgray;
+}

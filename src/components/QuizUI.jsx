@@ -1,6 +1,7 @@
 import React from "react";
 import SplitCard from "./SplitCard";
 import FormQuizSetup from "./FormQuizSetup";
+import QuizBar from "./QuizBar";
 
 function QuizUI(props) {
   const [splitCards, setSplitCards] = React.useState(() => {
@@ -77,7 +78,19 @@ function QuizUI(props) {
 
   return (
     <div className="quiz-ui">
-      {QuizSetupData.start ? SplitCardUI() : <FormQuizSetup onSubmit={handleQuizSetup} />}
+      {QuizSetupData.start ? (
+        <div>
+          <QuizBar
+            cards={splitCards}
+            onBarButtonLinkClick={(newIndex) => {
+              setCurrentCardIndex(newIndex);
+            }}
+          />
+          {SplitCardUI()}
+        </div>
+      ) : (
+        <FormQuizSetup onSubmit={handleQuizSetup} />
+      )}
     </div>
   );
 }

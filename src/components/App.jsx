@@ -29,9 +29,6 @@ import NavBar from "./NavBar";
  *  all buttons until user pressed retry button which unchecks all buttons.
  *
  *  Style webpage with Bootstrap
- * 
- * 
- *  Add a session (local storage) to save cards among multiple pages and page refreshes
  *  
  *
  */
