@@ -19,11 +19,11 @@ function QuizUI(props) {
   // is correctly answered, incorrectly answered, not answered, or not visited)
   // 
 
-  function updateSplitCards(SplitCardSegments, correctResult) {
+  function updateSplitCards(SplitCardSegments, SplitCardState) {
     setSplitCards((prevCards) => {
       return prevCards.map((card, index) => {
         if (index === currentCardIndex) {
-          return {...card,  segments: [...SplitCardSegments], state: correctResult};
+          return {...card,  segments: [...SplitCardSegments], state: SplitCardState};
         }
         return card;
       });

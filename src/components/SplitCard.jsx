@@ -18,17 +18,19 @@ function SplitCard(props) {
         )
   );
 
-  // States whether the order of the segments is correct (true,
-  // false or null when checked button has not been pressed yet)
-  const [correctResult, setCorrectResult] = React.useState(
+  /** States whether the order of the segments is correct 
+   * true - correct, false - incorrect, null - not checked yet,
+   * undefined - not visited yet
+  * */
+  const [SplitCardState, setSplitCardState] = React.useState(
     props.state != undefined ? props.state : null
   );
 
   React.useEffect(() => {
     if (props.onUpdate !== undefined) {
-      props.onUpdate(textSegments, correctResult);
+      props.onUpdate(textSegments, SplitCardState);
     }
-  }, [textSegments, correctResult]);
+  }, [textSegments, SplitCardState]);
 
   // Changes one element of the textSegments array without mutating the original array
   function changeTextSegmentsElement(id, newObject) {
@@ -69,7 +71,7 @@ function SplitCard(props) {
     }
     */
 
-    setCorrectResult(null);
+    setSplitCardState(null);
   }
 
   // handles click on the check button
@@ -93,11 +95,11 @@ function SplitCard(props) {
     // check if all segments are checked and in correct order
     for (let i = 0; i < textSegments.length; i++) {
       if (textSegments[i].id !== i || textSegments[i].checked !== true) {
-        setCorrectResult(false);
+        setSplitCardState(false);
         return;
       }
     }
-    setCorrectResult(true);
+    setSplitCardState(true);
   }
 
   /***** helper functions *****/
@@ -147,10 +149,10 @@ function SplitCard(props) {
         <button onClick={handleCheck}>Check</button>
       </div>
       <div className="message">
-        {correctResult === true && (
+        {SplitCardState === true && (
           <p style={{ color: "green" }}>You are right!</p>
         )}
-        {correctResult === false && (
+        {SplitCardState === false && (
           <p style={{ color: "red" }}>You are incorrect</p>
         )}
       </div>
