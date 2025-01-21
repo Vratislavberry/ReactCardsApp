@@ -145,8 +145,11 @@ function SplitCard(props) {
         return textSegment.checked === false;
       })}
 
-      <div className="checkButtonContainer">
+      <div className="button-crud-container">
         <button onClick={handleCheck}>Check</button>
+      </div>
+      <div className="button-crud-container">
+        <button onClick={() => {props.onDelete(props.id)}}>Delete</button>
       </div>
       <div className="message">
         {SplitCardState === true && (

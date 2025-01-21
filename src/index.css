@@ -49,12 +49,12 @@ body {
   background-color: aqua;
 }
 
-.checkButtonContainer {
+.button-crud-container {
   text-align: right;
   margin: 10px;
 }
 
-.checkButtonContainer button {
+.button-crud-container button {
   background-color: lightcoral;
 }
 

@@ -30,11 +30,26 @@ function CardManager() {
     }
   }
 
+  function deleteSplitCard(index) {
+    setSplitCards((preValue) => {
+      return preValue.filter((splitCard, i) => {
+        return i !== index;
+      });
+    });
+  }
+
   return (
     <div>
       <FormAddSplitCard addSplitCard={addSplitCard} />
       {splitCards.map((splitCard, index) => (
-        <SplitCard key={index} title={splitCard.title} text={splitCard.text} className={"splitCardPreview"}/>
+        <SplitCard
+          key={index}
+          id={index}
+          title={splitCard.title}
+          text={splitCard.text}
+          className={"splitCardPreview"}
+          onDelete={deleteSplitCard}
+        />
       ))}
     </div>
   );
