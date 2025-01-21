@@ -17,7 +17,6 @@ function CardManager() {
 
   React.useEffect(() => {
     window.localStorage.setItem("MY_SPLIT_CARDS", JSON.stringify(splitCards));
-    console.log(splitCards);
   }, [splitCards]);
 
   function addSplitCard(newCard) {
