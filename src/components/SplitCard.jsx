@@ -20,10 +20,14 @@ function SplitCard(props) {
 
   // States whether the order of the segments is correct (true,
   // false or null when checked button has not been pressed yet)
-  const [correctResult, setCorrectResult] = React.useState(props.state != undefined ? props.state : null);
+  const [correctResult, setCorrectResult] = React.useState(
+    props.state != undefined ? props.state : null
+  );
 
   React.useEffect(() => {
-    props.onUpdate(textSegments, correctResult);
+    if (props.onUpdate !== undefined) {
+      props.onUpdate(textSegments, correctResult);
+    }
   }, [textSegments, correctResult]);
 
   // Changes one element of the textSegments array without mutating the original array
