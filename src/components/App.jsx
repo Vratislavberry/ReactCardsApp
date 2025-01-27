@@ -40,10 +40,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/CardManager" element={<CardManager />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="/ReactCardsApp/home" element={<Home />} />
+          <Route path="/ReactCardsApp/CardManager" element={<CardManager />} />
+          <Route path="/ReactCardsApp/quiz" element={<Quiz />} />
+          <Route path="/ReactCardsApp/*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
     </>
