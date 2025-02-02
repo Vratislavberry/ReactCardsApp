@@ -1,11 +1,11 @@
 import React from "react";
-//import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import CardManager from "../pages/CardManager";
 import Quiz from "../pages/Quiz";
 import NoPage from "../pages/NoPage";
 import NavBar from "./NavBar";
-import { Link, Outlet } from "react-router-dom";
+
 
 // alt + shift + f = auto-indent
 /** Ideas for improvement:
@@ -36,22 +36,16 @@ import { Link, Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <Link to="/ReactCardsApp/">Home</Link>
-      <Link to="/ReactCardsApp/CardManager">Card Manager</Link>
-      <Link to="/ReactCardsApp/Quiz">Quiz</Link>
-      <Outlet />
-
-      {/*
+      <NavBar />
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/ReactCardsApp/home" element={<Home />} />
-          <Route path="/ReactCardsApp/CardManager" element={<CardManager />} />
-          <Route path="/ReactCardsApp/quiz" element={<Quiz />} />
-          <Route path="/ReactCardsApp/*" element={<NoPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/CardManager" element={<CardManager />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
-      */}
     </>
   );
 }
